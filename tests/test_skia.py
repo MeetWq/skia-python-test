@@ -15,9 +15,9 @@ def test_import_skia_textlayout():
 
 
 def test_skia_paragraph():
-    from skia import Surfaces, ImageInfo, AlphaType
+    from skia import Surfaces
     from skia import textlayout
-    from skia import ColorBLACK, ColorWHITE, FontMgr, FontStyle, Paint, Unicodes, kPNG
+    from skia import ColorBLACK, ColorWHITE, FontMgr, Paint, Unicodes, kPNG
 
     paint = Paint()
     paint.setAntiAlias(True)
@@ -37,7 +37,7 @@ def test_skia_paragraph():
     paragraph = builder.Build()
     paragraph.layout(500.0)
 
-    surface = skia.Surfaces.MakeRasterN32Premul(500, 500)
+    surface = Surfaces.MakeRasterN32Premul(500, 500)
     canvas = surface.getCanvas()
     canvas.clear(ColorWHITE)
     paragraph.paint(canvas, 0, 0)
